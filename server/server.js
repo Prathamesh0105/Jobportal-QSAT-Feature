@@ -67,7 +67,7 @@ app.use(morgan('tiny'));
 app.use(express.json());
 config(); // Load environment variables
 app.use(cors({
-    origin: 'https://jobportal-qsat-feature-frontend.vercel.app/', // Replace with your deployed frontend URL
+    origin: 'https://jobportal-qsat-feature-frontend.vercel.app', // Replace with your deployed frontend URL
     methods: ['GET', 'POST'], // Allow specific methods, e.g., GET and POST
     credentials: true // Enable if using cookies or sessions
   }));
