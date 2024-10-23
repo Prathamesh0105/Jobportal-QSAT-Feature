@@ -56,17 +56,21 @@ import router from './router/route.js';
 import connect from './database/conn.js'; // Import database connection
 
 const app = express();
-
+const cors = require('cors'); 
 
 /** App middlewares */
 app.use(morgan('tiny'));
-app.use(cors({
-    origin: 'http://localhost:3000',  // You can specify the frontend URL here or leave it open
-    optionsSuccessStatus: 200
-}));
+// app.use(cors({
+//     origin: 'http://localhost:3000',  // You can specify the frontend URL here or leave it open
+//     optionsSuccessStatus: 200
+// }));
 app.use(express.json());
 config(); // Load environment variables
-
+app.use(cors({
+    origin: 'https://jobportal-qsat-feature-frontend.vercel.app/', // Replace with your deployed frontend URL
+    methods: ['GET', 'POST'], // Allow specific methods, e.g., GET and POST
+    credentials: true // Enable if using cookies or sessions
+  }));
 /** Application port */
 const port = process.env.PORT || 8080;
 
